@@ -1,3 +1,4 @@
+using System;
 using EzySlice;
 using UnityEngine;
 using Plane = EzySlice.Plane;
@@ -8,14 +9,15 @@ public class Card : MonoBehaviour
     [SerializeField] private float _explosionForce;
     [SerializeField] private float _explosionRadius;
 
-
     private const string TARGET_TAG = "Target";
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (ObjectIsTarget(collider)) SliceCollider(collider);
+        if (ObjectIsTarget(collider)) 
+            SliceCollider(collider);
+        
+        DestroySelf();
     }
-
 
     private void SliceCollider(Collider collider)
     {
@@ -32,11 +34,11 @@ public class Card : MonoBehaviour
         }
     }
 
-    private void DestroySelfAndTriggeredCollider(Collider collider)
-    {
-        Destroy(gameObject);
+    private void DestroySelfAndTriggeredCollider(Collider collider) =>
         DestroyOldCollider(collider);
-    }
+
+    private void DestroySelf() =>
+        Destroy(gameObject);
 
     private void SetupHulls(GameObject[] hulls)
     {
@@ -44,7 +46,7 @@ public class Card : MonoBehaviour
             SetupHull(hull);
     }
 
-    static void DestroyOldCollider(Collider collider) =>
+    private static void DestroyOldCollider(Collider collider) =>
         Destroy(collider.gameObject);
 
     private static bool ObjectIsTarget(Collider collider) =>
