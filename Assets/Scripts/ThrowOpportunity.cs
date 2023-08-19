@@ -1,17 +1,22 @@
 using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class Throw : MonoBehaviour
+public class ThrowOpportunity : MonoBehaviour
 {
-    [SerializeField] private ThrowableCard _cardObject;
+    [SerializeField] private ThrowableObject objectObject;
     [SerializeField] private float _distanceFromCameraToTargets;
     [SerializeField] private LineRenderer _lineRenderer;
 
     private Vector3 _endPosition;
-    
-    private const float MAX_ROTATION_DEGREE = 70;
-    
+
+    private void Start()
+    {
+        SetRandomRotation();
+    }
+
+    private void SetRandomRotation()
+    {
+    }
 
     private void OnMouseDrag()
     {
@@ -38,19 +43,12 @@ public class Throw : MonoBehaviour
 
     private void ThowCard(Vector3 throwVector)
     {
-        ThrowableCard card = Instantiate(_cardObject);
+        ThrowableObject @object = Instantiate(objectObject);
         
-        card.transform.position = transform.position + transform.forward * transform.localScale.z;
-        card.transform.forward = throwVector;
+        @object.transform.position = transform.position + transform.forward * transform.localScale.z;
+        @object.transform.forward = throwVector;
         
-        card.SetCardRotation(GetRandomZRotation());
-        card.Throw(throwVector);
-    }
-
-    private Quaternion GetRandomZRotation()
-    {
-        float randomZ = Random.Range(-MAX_ROTATION_DEGREE, MAX_ROTATION_DEGREE);
-        return Quaternion.Euler(new Vector3(0,0,randomZ));
+        @object.Throw(throwVector);
     }
 
 }

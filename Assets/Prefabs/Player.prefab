@@ -121,10 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf31013dd003484eb193eb8b5f517a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardObject: {fileID: 7268481790912090449, guid: 86094455f173f4d2c851852be910b6b0,
+  objectObject: {fileID: 7268481790912090449, guid: 86094455f173f4d2c851852be910b6b0,
     type: 3}
   _distanceFromCameraToTargets: 16
   _lineRenderer: {fileID: 4309643075228373233}
+  _minMaxRotateDegree: 0
 --- !u!120 &4309643075228373233
 LineRenderer:
   serializedVersion: 2
