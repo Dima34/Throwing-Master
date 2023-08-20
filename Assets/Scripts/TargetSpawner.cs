@@ -11,9 +11,8 @@ namespace DefaultNamespace
 
         private void SpawnTarget()
         {
-            Debug.Log($"Call SpawnTargetFrom {transform.GetInstanceID()}");
             Target target = Instantiate(_targetToSpawn, transform);
-            target.transform.position = transform.position + transform.up * (target.transform.lossyScale.y / 2);
+            target.transform.position = transform.position + transform.up * (target.transform.lossyScale.y);
         }
 
         private void CleanupSpawner()

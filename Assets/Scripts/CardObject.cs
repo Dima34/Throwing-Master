@@ -62,7 +62,7 @@ public class CardObject : MonoBehaviour
     }
 
     private void SetOriginsObjectParent(GameObject hull, GameObject originObject) =>
-        hull.transform.SetParent(originObject.transform.parent);
+        hull.transform.SetParent(originObject.transform.parent, false);
 
     private void AddExposionForce(Rigidbody rb) =>
         rb.AddExplosionForce(_explosionForce, transform.position, _explosionRadius, 3);
