@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifetime: 5
-  _flySpeed: 10
+  _flySpeed: 20
 --- !u!1 &8161937470466237064
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,3 +262,6 @@ MonoBehaviour:
   _cardObject: {fileID: 3447135381924412289}
   _rootObjectToDestroy: {fileID: 443060625921330603}
   _randomRotaionAngleLimit: 180
+  _cardFollowTrail: {fileID: 8643320361878717229, guid: 249e79e5396304551aaacee081878df7,
+    type: 3}
+  _trailAfterDestroyLifeTime: 4
